@@ -21,7 +21,4 @@ trait SluggableTrait
             ]
         ];
     }
-
-
-
 }
