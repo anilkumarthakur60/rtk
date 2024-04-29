@@ -1,4 +1,6 @@
-const initialCommonState = {
+import { CommonState } from "../../types/store-types";
+
+const initialCommonState: CommonState = {
   data: [],
   formData: {},
   showModal: false,
@@ -22,86 +24,109 @@ const initialCommonState = {
   url: "",
 };
 
-const setCommonPage = (state, action) => {
-  state.pagination.page = action.payload;
+const setCommonPage = (
+  state: CommonState,
+  { payload }: { payload: number }
+) => {
+  state.pagination.page = payload;
 };
-const setCommonRowsPerPage = (state, action) => {
-  state.pagination.rowsPerPage = action.payload;
+const setCommonRowsPerPage = (
+  state: CommonState,
+  { payload }: { payload: number }
+) => {
+  state.pagination.rowsPerPage = payload;
 };
-const setCommonSortBy = (state, action) => {
-  state.pagination.sortBy = action.payload;
+const setCommonSortBy = (
+  state: CommonState,
+  { payload }: { payload: string }
+) => {
+  state.pagination.sortBy = payload;
 };
-const setCommonDescending = (state, action) => {
-  state.pagination.descending = action.payload;
+const setCommonDescending = (
+  state: CommonState,
+  { payload }: { payload: boolean }
+) => {
+  state.pagination.descending = payload;
 };
-const setCommonFilters = (state, action) => {
-  const { name, value } = action.payload;rowsPerPageOptions
-  const updatedFilters = {
-    ...state.filters,
-    [name]: value,
-  };
-
-  // return {
-  //   ...state,
-  //   filters: updatedFilters,
-  // };
+const setCommonFilters = (
+  state: CommonState,
+  { payload }: { payload: { name: string; value: any } }
+) => {
+  const { name, value } = payload;
   state.filters = {
     ...state.filters,
     [name]: value,
   };
 };
 
-const clearCommonError = (state, action) => {
-  const { fieldName } = action.payload;
+const clearCommonError = (
+  state: CommonState,
+  { payload }: { payload: any }
+) => {
+  const { fieldName } = payload;
   delete state.error[fieldName];
 };
 
-const setCommonProgress = (state, action) => {
-  state.progress = action.payload;
+const setCommonProgress = (
+  state: CommonState,
+  { payload }: { payload: any }
+) => {
+  state.progress = payload;
 };
 
-const deleteFilterKeys = (state, action) => {
-  delete state.filters[action.payload.keyName];
+const deleteFilterKeys = (
+  state: CommonState,
+  { payload }: { payload: any }
+) => {
+  delete state.filters[payload.keyName];
 };
 
-const allReset = (state) => {
+const allReset = (state: CommonState) => {
   state = initialCommonState;
   return state;
 };
 
-const setCommonData = (state, action) => {
-  state.data = action.payload;
+const setCommonData = (state: CommonState, { payload }: { payload: any[] }) => {
+  state.data = payload;
 };
 
-const setCommonFormData = (state, action) => {
-  const { name, value } = action.payload;
+const setCommonFormData = (
+  state: CommonState,
+  { payload }: { payload: any }
+) => {
+  const { name, value } = payload;
   state.formData = {
     ...state.formData,
     [name]: value,
   };
 };
 
-const setCommonShowModalFalse = (state) => {
+const setCommonShowModalFalse = (state: CommonState) => {
   state.showModal = false;
 };
-const setCommonShowModalTrue = (state) => {
+const setCommonShowModalTrue = (state: CommonState) => {
   state.showModal = true;
 };
-const setCommonShowModal = (state, action) => {
-  state.showModal = action.payload;
+const setCommonShowModal = (
+  state: CommonState,
+  { payload }: { payload: boolean }
+) => {
+  state.showModal = payload;
 };
 
-const setCommonEditFormData = (state, action) => {
-  state.formData = action.payload;
+const setCommonEditFormData = (
+  state: CommonState,
+  { payload }: { payload: any }
+) => {
+  state.formData = payload;
 };
 
-
-const  setCommonFilterNull = (state) => {
-    state.filters = {};
-}
-const setCommonFormDataNull = (state) => {
-    state.formData = {};
-}
+const setCommonFilterNull = (state: CommonState) => {
+  state.filters = {};
+};
+const setCommonFormDataNull = (state: CommonState) => {
+  state.formData = {};
+};
 
 export {
   initialCommonState,
@@ -121,5 +146,5 @@ export {
   setCommonShowModal,
   setCommonEditFormData,
   setCommonFilterNull,
-  setCommonFormDataNull
+  setCommonFormDataNull,
 };
