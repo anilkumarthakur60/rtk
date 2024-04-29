@@ -20,8 +20,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "types": [
-      "@types/node",
-      "node",
+      "@types/node"
     ]
   },
   "include": ["src"],
