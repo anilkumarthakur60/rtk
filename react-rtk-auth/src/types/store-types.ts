@@ -20,9 +20,12 @@ export interface CommonState {
     selectAllRowsItemText: string;
   };
   url: "";
+  allReset?: () => void;
 }
 
-export interface UserState extends CommonState {}
+export interface UserState extends CommonState {
+  userDetail: Record<string, any>;
+}
 
 export interface PostState extends CommonState {}
 

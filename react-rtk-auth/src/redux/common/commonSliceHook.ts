@@ -81,7 +81,7 @@ const deleteFilterKeys = (
   delete state.filters[payload.keyName];
 };
 
-const allReset = (state: CommonState) => {
+const allReset = (state: any) => {
   state = initialCommonState;
   return state;
 };
