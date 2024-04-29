@@ -1,10 +1,9 @@
-import React from 'react'
 
 type Props = {}
 
 const NotFound = (props: Props) => {
   return (
-    <div>NotFound</div>
+    <div {...props}>NotFound</div>
   )
 }
 

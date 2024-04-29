@@ -2,9 +2,9 @@ import React from 'react'
 
 type Props = {}
 
-const Dashboard = (props: Props) => {
+const Dashboard:React.FC = (props: Props) => {
   return (
-    <div>Dashboard</div>
+    <div {...props}>Dashboard</div>
   )
 }
 

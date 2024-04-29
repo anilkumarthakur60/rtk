@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { indigo } from "@mui/material/colors";
 import { debounce } from "lodash";
-import { RootState, StoresType } from "../types/store-types";
-import { ChangeEventHandler } from "react";
+import { RootState} from "../types/store-types";
+import { ChangeEvent } from "react";
 export default function useStore(store_name: keyof RootState) {
   const dispatch = useDispatch();
   const {
@@ -103,7 +103,7 @@ export default function useStore(store_name: keyof RootState) {
     dispatch(formDataAction);
   };
 
-  const setFormData = ({ target }) => {
+  const setFormData = ({ target }:ChangeEvent<HTMLInputElement>) => {
     const { name, value } = target;
     const formAction = {
       type: `${store_name}/setFormData`,
