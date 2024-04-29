@@ -136,7 +136,7 @@ export default function DrawerAppBar(props: Props) {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{ p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
         <Toolbar />
         <Outlet />
       </Box>

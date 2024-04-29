@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { indigo } from "@mui/material/colors";
 import { debounce } from "lodash";
-import { RootState } from "../types/store-types";
+import { RootState, StoresType } from "../types/store-types";
+import { ChangeEventHandler } from "react";
 export default function useStore(store_name: keyof RootState) {
   const dispatch = useDispatch();
   const {
@@ -102,7 +103,7 @@ export default function useStore(store_name: keyof RootState) {
     dispatch(formDataAction);
   };
 
-  const setFormData = ({ target }: { target: HTMLInputElement }) => {
+  const setFormData = ({ target }) => {
     const { name, value } = target;
     const formAction = {
       type: `${store_name}/setFormData`,
@@ -163,6 +164,4 @@ export default function useStore(store_name: keyof RootState) {
 
 export const storeName = {
   users: "users",
-  posts: "posts",
-  roles: "roles",
-};
+} as const;
