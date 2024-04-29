@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@types/lodash": "^4.17.0",
+    "@types/node": "^20.12.7",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
     "react-router-dom": "^6.23.0"
