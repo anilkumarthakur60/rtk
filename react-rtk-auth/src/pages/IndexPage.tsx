@@ -2,9 +2,9 @@ import React from 'react'
 
 type Props = {}
 
-const IndexPage = (props: Props) => {
+const IndexPage:React.FC = (props: Props) => {
   return (
-    <div>IndexPage</div>
+    <div {...props}>IndexPage</div>
   )
 }
 

@@ -13,9 +13,9 @@ import {useNavigate} from "react-router-dom";
 import { useLogoutMutation } from '../../redux/user/userApi';
 
 function ProfileMenu() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = React.useState<null|HTMLElement>(null);
     const open = Boolean(anchorEl);
-    const handleClick = (event) => {
+    const handleClick = (event:React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
@@ -25,7 +25,7 @@ function ProfileMenu() {
 
     const [logout]=useLogoutMutation();
     const logouts = () => {
-        logout()
+        logout({})
             .unwrap()
             .finally(() => {
                 localStorage.removeItem('access_token')
